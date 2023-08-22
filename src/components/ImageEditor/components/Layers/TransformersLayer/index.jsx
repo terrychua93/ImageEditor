@@ -3,8 +3,8 @@ import React from 'react';
 import { Layer } from 'konva';
 
 /** Internal Dependencies */
-import { useStore } from '@/components/ImageEditor/hooks';
-import { TOOLS_IDS, TRANSFORMERS_LAYER_ID } from '@/components/ImageEditor/utils/constants';
+import { useStore } from '../../../../ImageEditor/hooks';
+import { TOOLS_IDS, TRANSFORMERS_LAYER_ID } from '../../../../ImageEditor/utils/constants';
 import CropTransformer from './CropTransformer';
 import NodesTransformer from './NodesTransformer';
 

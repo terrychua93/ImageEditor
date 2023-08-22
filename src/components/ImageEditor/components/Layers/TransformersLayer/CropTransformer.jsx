@@ -12,7 +12,7 @@ import {
   FEEDBACK_STATUSES,
   ORIGINAL_CROP,
   TOOLS_IDS,
-} from '../../../../..ImageEditor/utils/constants';
+} from '../../../../ImageEditor/utils/constants';
 import { boundDragging, boundResizing } from './cropAreaBounding';
 
 const CropTransformer = () => {

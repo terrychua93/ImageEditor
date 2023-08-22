@@ -6,10 +6,10 @@ import DeleteOutline from '@scaleflex/icons/delete-outline';
 import Duplicate from '@scaleflex/icons/duplicate';
 
 /** Internal Dependencies */
-import { useStore } from '../../../../ImageEditor/hooks';
-import { DUPLICATE_ANNOTATIONS, REMOVE_ANNOTATIONS } from '../../../../ImageEditor/actions';
-import { NODES_TRANSFORMER_ID, WATERMARK_ANNOTATION_ID } from '../../../../ImageEditor/utils/constants';
-import debounce from '../../../../ImageEditor/utils/debounce';
+import { useStore } from '../../../ImageEditor/hooks';
+import { DUPLICATE_ANNOTATIONS, REMOVE_ANNOTATIONS } from '../../../ImageEditor/actions';
+import { NODES_TRANSFORMER_ID, WATERMARK_ANNOTATION_ID } from '../../../ImageEditor/utils/constants';
+import debounce from '../../../ImageEditor/utils/debounce';
 import { StyledNodeControls } from './NodeControls.styled';
 
 const NodeControls = () => {

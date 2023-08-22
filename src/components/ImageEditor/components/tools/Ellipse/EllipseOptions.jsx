@@ -8,7 +8,6 @@ import { TOOLS_IDS } from '../../../../ImageEditor/utils/constants';
 import AnnotationOptions from '../../../../ImageEditor/components/common/AnnotationOptions';
 import Stroke from '../../../../ImageEditor/components/common/Stroke'
 import { StyledBorderLineBox, StyledFlex } from './Elipse.styled';
-import ColorInput from '../ColorInput';
 
 const EllipseOptions = ({ t }) => {
   const [ellipse, saveEllipse] = useAnnotation({
