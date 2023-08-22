@@ -1,0 +1,81 @@
+.ImageViewer__wrapper {
+  position: absolute;
+  left: 0px;
+  width: 800px;
+  height: 420px;
+  right: 0px;
+  margin: 0px auto;
+  overflow: auto;
+}
+
+.ImageViewer__wrapper__fullscreen {
+  position: absolute;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+  right: 0px;
+  margin: 0px auto;
+  overflow: auto;
+}
+
+.ImageViewer__Modal {
+  width: 800px !important;
+  height: 300px !important;
+}
+
+.ImageViewer__Modal__fullscreen {
+  width: 100vw !important;
+  height: 100vh !important;
+}
+
+.ImageViewer__Button__Section {
+  position: relative;
+  display: inline-flex;
+  width: 100%;
+  justify-content: center;
+  margin: 20px 0px 5px 0px;
+}
+
+.ImageViewer__Image__Container {
+  background-color: rgba(248, 250, 251, 1);
+  width: auto;
+  height: 300px;
+  overflow: auto;
+  text-align: center;
+
+  div {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    max-height: 100%;
+    position: relative;
+  }
+
+  div img {
+    transition: ease-in-out .2s;
+
+  }
+}
+
+.ImageViewer__Image__Container__fullscreen {
+  background-color: rgba(248, 250, 251, 1);
+  width: auto;
+  height: calc(100vh - 150px);
+  overflow: auto;
+  text-align: center;
+
+  div {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    max-height: 100%;
+    position: relative;
+  }
+
+  div img {
+    transition: ease-in-out .2s;
+
+  }
+}

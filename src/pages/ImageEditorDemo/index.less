@@ -1,0 +1,79 @@
+.DevTest table {
+  text-align: left;
+}
+
+.DevTest table thead {
+  background: #eee;
+}
+
+.DevTest table th, .DevTest table td {
+  padding: 5px 10px;
+}
+
+.DevTest table tbody tr {
+  border-bottom: 1px solid #ccc;
+}
+
+.DevTest strong {
+  font-weight: 800;
+}
+
+.DevTest blockquote {
+  position: relative;
+  margin: 10px 0;
+  padding: 7px 10px;
+  background: #ddd;
+  color: #666;
+}
+
+.DevTest blockquote::before {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 4px;
+  background: var(--ant-primary-color);
+  top: 0;
+  left: 0;
+}
+
+.DevTest legend {
+  transform: translateY(-50px);
+}
+
+.DevTest ol {
+  list-style: lower-roman;
+  padding-left: 30px;
+  min-width: 150px;
+  margin-bottom: 0;
+}
+
+.DevTest__toTop {
+  position: fixed;
+  z-index: 100;
+  bottom: 10px;
+  right: 5px;
+
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+
+  transition: 0.25s color;
+}
+
+.DevTest__toTop:hover {
+  color: var(--ant-primary-color);
+}
+
+.DevTest__ol {
+  display: flex;
+  gap: 25px;
+}
+
+.DevTest__ol {
+  list-style: unset !important;
+}
+
+.DevTest__ol > ol > li > ol {
+  list-style: lower-roman;
+}
