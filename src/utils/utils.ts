@@ -54,13 +54,17 @@ export const convertFileTo24Bit = (file: File): Promise<File> => {
 
     // Create a new canvas with 24-bit depth
     const newCanvas = createCanvas(image.width, image.height);
+
     const newContext = newCanvas.getContext("2d")!;
 
     // Set the new image data to the new canvas
     newContext.putImageData(imageData, 0, 0);
 
     // Convert the new canvas to a Blob
-    const blob = await canvasToBlob(newCanvas, "image/jpeg");
+    const blob = await canvasToBlob(
+      newCanvas as unknown as HTMLCanvasElement,
+      "image/jpeg"
+    );
 
     if (blob) {
       // Create a File object from the Blob

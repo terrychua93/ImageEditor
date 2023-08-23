@@ -9,7 +9,7 @@ import { useStore } from '../../../ImageEditor/hooks';
 import Modal from '../../../ImageEditor/components/common/Modal';
 import { RESET } from '../../../ImageEditor/actions';
 import { StyledHistoryButton } from './Topbar.styled';
-import { popConfirm } from '../../components/Popconfirm';
+import { popConfirm } from '../../../Popconfirm';
 const ResetButton = ({ margin }) => {
   const {
     dispatch,

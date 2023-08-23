@@ -8,7 +8,8 @@ import ImageEditor, {
   onSaveImageResult,
 } from '../../components/ImageEditor';
 import { fileToBase64 } from '../../utils/utils';
-
+import ImageViewer from '../..//components/ImageViewer';
+import './index.css'
 const { Title, Paragraph } = Typography;
 
 
@@ -17,8 +18,8 @@ export default () => {
   const input = useRef<HTMLInputElement>(null);
   const [uploadedBase64, setUploadedBase64] = useState<string>();
   const [edittedBase64, setEdittedBase64] = useState<string>();
-
-
+  const [showImageViewer, setShowImageViewer] = useState<boolean>(false);
+  const [ImageBase64Viewer, setImageBase64Viewer] = useState<string>();
   const [fileType, setFileType] = useState<string>();
   const fileExtensionList = ['.jpg', '.jpeg', '.png', '.bmp', '.stl'];
 
@@ -52,6 +53,15 @@ export default () => {
     return result;
   };
 
+  const openImageViewer = (imageBase64: string) => {
+    setShowImageViewer(true);
+    setImageBase64Viewer(imageBase64);
+  }
+
+  const onCloseImageViewerModal = () => {
+    setShowImageViewer(false);
+  }
+
   return (
     <>
       <Title>Image Editor</Title>
@@ -69,18 +79,28 @@ export default () => {
         Edit Image (Custom Image)
       </Button>
 
-      <div style={{ 'display': 'grid', 'gridAutoFlow': 'column' }}>
+      <div className='Grid__wrapper'>
         <div>
           <p>Before Edit</p>
-          <img src={uploadedBase64} width={200} height={250} />
+          <img src={uploadedBase64} width={200} height={250} onClick={() => openImageViewer(uploadedBase64)} />
         </div>
 
         <div>
           <p>After Edit</p>
-          <img src={edittedBase64} width={200} height={250} />
+          <img src={edittedBase64} width={200} height={250} onClick={() => openImageViewer(edittedBase64)} />
         </div>
       </div>
+
+      {showImageViewer && (
+        <ImageViewer
+          imageBase64={ImageBase64Viewer!}
+          onCloseModal={() => onCloseImageViewerModal()}
+        />
+      )}
+
       <ImageEditor imageEditorRef={imageEditorRef} onSave={saveImage} />
+
+
     </>
   );
 };

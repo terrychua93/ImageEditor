@@ -4,7 +4,7 @@
 /** External Dependencies */
 import React, { forwardRef, useEffect, useState, useImperativeHandle } from 'react';
 import { Modal } from 'antd';
-import { popConfirm } from './components/Popconfirm';
+import { popConfirm } from '../Popconfirm';
 /** Internal Dependencies */
 import FilerobotImageEditor from '../ImageEditor/components/AssemblyPoint';
 import { TABS_IDS, TOOLS_IDS } from '../ImageEditor/utils/constants';
@@ -90,7 +90,7 @@ const ImageEditor = (props) => {
           closable={false}
           open={imageInfo !== undefined}
           onOk={() => endEdit()}
-          width={1600}
+          width={1000}
           centered
           footer={null}
         >

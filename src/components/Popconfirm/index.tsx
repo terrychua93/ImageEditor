@@ -1,6 +1,6 @@
 import { CloseOutlined, QuestionCircleOutlined } from '@ant-design/icons';
 import { Col, Modal, Popconfirm, Row } from 'antd';
-import './index.less';
+import './index.css';
 const { confirm, info } = Modal;
 
 /**

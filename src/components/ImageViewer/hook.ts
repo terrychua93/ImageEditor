@@ -2,8 +2,7 @@ import { notification } from "antd";
 import { useEffect, useState } from "react";
 
 export interface ImageViewerHookProps {
-  fileMetadataId: string;
-  fileExtension: string;
+  imageBase64: string;
 }
 
 const useImageViewer = (props: ImageViewerHookProps) => {
@@ -24,19 +23,15 @@ const useImageViewer = (props: ImageViewerHookProps) => {
     onCloseModal();
   };
 
-  const fetchHighResImageByFileMetadataId = async (id: string) => {
-    if (!id) return;
+  const fetchHighResImageByFileMetadataId = async (imageBase64: string) => {
+    if (!imageBase64) return;
     setImageViewerLoading(true);
     try {
       const fileData = "base64";
 
-      if (fileData) {
-        const fileExtensionRemoveDot = props.fileExtension?.split(".")[1];
-        const highRes = fileData;
+      if (imageBase64) {
         setImageViewerLoading(false);
-        setDisplayOriImage(
-          `data:image/${fileExtensionRemoveDot};base64,  ${highRes}`
-        );
+        setDisplayOriImage(imageBase64);
         onOpenModal();
       } else {
         notification.error({ message: "File data not found" });
@@ -45,8 +40,8 @@ const useImageViewer = (props: ImageViewerHookProps) => {
   };
 
   useEffect(() => {
-    fetchHighResImageByFileMetadataId(props.fileMetadataId);
-  }, [props.fileMetadataId]);
+    fetchHighResImageByFileMetadataId(props.imageBase64);
+  }, [props.imageBase64]);
 
   return {
     onOpenModal,

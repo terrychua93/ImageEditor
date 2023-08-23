@@ -1,17 +1,14 @@
 import { Modal, Spin, Button } from 'antd';
 import { useImageViewer } from './hook';
-import './index.less';
+import './index.css';
 import { useEffect, useState } from 'react';
 import { ZoomInOutlined, ZoomOutOutlined } from '@ant-design/icons';
 import { b64toFile } from '../../utils/utils';
 
 
 export interface ImageViewerProps {
-  fileMetadataId: string,
-  fileExtension: string,
+  imageBase64: string,
   onCloseModal: () => void,
-  onEditClick: () => void,
-  isEdit?: boolean,
 }
 
 export default (props: ImageViewerProps) => {
@@ -69,7 +66,6 @@ export default (props: ImageViewerProps) => {
   };
 
   const onCloseModal = () => {
-    ImageViewerHook.onCancelModal();
     props.onCloseModal();
   }
 
@@ -108,7 +104,7 @@ export default (props: ImageViewerProps) => {
       wrapClassName={onFullScreen ? 'ImageViewer__wrapper__fullscreen' : 'ImageViewer__wrapper'}
       className={onFullScreen ? 'ImageViewer__Modal__fullscreen' : 'ImageViewer__Modal'}
       title={''}
-      style={{ top: '0px', height: '30%' }}
+      style={{ top: '0px', height: '20%' }}
       open={ImageViewerHook.isShowModal}
       onCancel={() => onCloseModal()}
       footer={[
@@ -133,11 +129,6 @@ export default (props: ImageViewerProps) => {
           <Button onClick={backToOriginal} style={{ marginLeft: '10px' }}>
             Back To Original
           </Button>
-          {
-            props.isEdit && <Button onClick={props.onEditClick} style={{ marginLeft: '10px' }}>
-              Edit
-            </Button>
-          }
           <Button onClick={fullscreen} style={{ marginLeft: '10px' }}>
             Full Screen
           </Button>
