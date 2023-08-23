@@ -1,6 +1,6 @@
 /** External Dependencies */
 import React, { useEffect, useRef } from 'react';
-import { Ellipse, Image, Rect, Transformer } from 'konva';
+import { Ellipse, Image, Rect, Transformer } from 'react-konva';
 import Konva from 'konva';
 
 /** Internal Dependencies */

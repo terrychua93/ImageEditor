@@ -1,6 +1,6 @@
 /** External Dependencies */
 import React, { useCallback, useEffect, useMemo, useRef } from 'react';
-import { Image, Layer } from 'konva';
+import { Image, Layer } from 'react-konva';
 
 /** Internal Dependencies */
 import getDimensionsMinimalRatio from '../../../../ImageEditor/utils/getDimensionsMinimalRatio';

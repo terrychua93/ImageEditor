@@ -1,7 +1,7 @@
 /** External Dependencies */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Text, Rect} from 'konva';
+import { Text, Rect} from 'react-konva';
 
 /** Internal Dependencies */
 import nodesCommonPropTypes from '../nodesCommonPropTypes';

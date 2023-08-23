@@ -11,26 +11,20 @@ import { TABS_IDS, TOOLS_IDS } from '../ImageEditor/utils/constants';
 // export { TABS_IDS as TABS, TOOLS_IDS as TOOLS };
 
 const ImageEditor = (props) => {
-  const { imageEditorRef, onSave, typeOfAttachment } = props;
+  const { imageEditorRef, onSave } = props;
   const [imageInfo, setImageInfo] = useState();
   const [displayTopbarImageInfo, setDisplayTopbarImageInfo] = useState(null);
   let isImageExpired = false;
 
-  function startEdit(imageData) {
-    const img = new Image();
-    img.src = `data:image/${imageData.type};charset=utf-8;base64, ` + imageData.base64Data;
-    img.crossOrigin = 'Anonymous';
-    img.name = imageData.name;
-    img.onload = () => {
+  function startEdit(imageData, imageType) {
       setImageInfo({
-        ...imageData,
-        name: imageData.imageName || 'New Image Edit',
-        imgElement: img,
+        name: 'New Image Edit',
+        imgElement: imageData,
+        type: imageType
       });
-    };
   }
 
-  async function startEditiDentalImage(fileMetadataId) {
+  async function startEditiDentalImage(image64Data: string) {
 
     const fileList = [fileMetadataId];
     const param = {
@@ -45,19 +39,7 @@ const ImageEditor = (props) => {
 
   /** isImageExpired is handle by handleExpiredImage only occur at PatientAttachment only */
   async function getDisplayTopbarImage(fileMetadataId) {
-    if (fileMetadataId == '' || !fileMetadataId || isImageExpired) {
       setDisplayTopbarImageInfo(null);
-      return;
-    }
-    const fileList = [fileMetadataId];
-    const param = {
-      FileMetadataIdList: fileList,
-      IsGetThumbnail: false,
-      IsGetFullSize: true
-    };
-    try {
-
-    } catch { }
   }
 
   function endEdit() {
@@ -90,25 +72,9 @@ const ImageEditor = (props) => {
     }  
   }
 
-  function handleExpiredImage(date){
-    if (date) {
-      const updateDate = new Date(date);
-      const now = new Date();
-      const timeSinceUpdate = now.getTime() - updateDate.getTime();
-      //const hasExpired = timeSinceUpdate > 10000; // 10 sec in milliseconds (For Testing)
-      const hasExpired = timeSinceUpdate > 24 * 60 * 60 * 1000; // 24 hours in milliseconds
-      if (hasExpired && typeOfAttachment == 'PatientAttachment') {
-          isImageExpired = true;
-      }
-    }
-  }
-
-
   useEffect(() => {
     imageEditorRef.current = {
-      startEditImage: startEdit,
-      startEditiDentalImage: startEditiDentalImage,
-      handleExpiredEdittedImage: handleExpiredImage,
+      setImageBase64: startEdit,
       getDisplayTopbarImage: getDisplayTopbarImage,
     };
   }, []);
@@ -128,9 +94,8 @@ const ImageEditor = (props) => {
           centered
           footer={null}
         >
-          <div style={{ height: '750px' }}>
+          <div style={{ height: '500px' }}>
             <FilerobotImageEditor
-              displayLeftTopImageTitle={typeOfAttachment == 'PatientAttachment'? 'Edited Image' : 'Original Image'}
               source={imageInfo.imgElement}
               displayTopbarSource={displayTopbarImageInfo}
               savingPixelRatio={1}

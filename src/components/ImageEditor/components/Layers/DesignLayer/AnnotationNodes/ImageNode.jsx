@@ -1,7 +1,7 @@
 /** External Dependencies */
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { Image } from 'konva';
+import { Image } from 'react-konva';
 
 /** Internal Dependencies */
 import loadImage from '../../../../../ImageEditor/utils/loadImage';

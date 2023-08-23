@@ -1,5 +1,5 @@
 /** External Dependencies */
-import { Stage } from "konva";
+import { Stage } from "react-konva";
 import styled from "styled-components";
 
 const CanvasContainer = styled.div`

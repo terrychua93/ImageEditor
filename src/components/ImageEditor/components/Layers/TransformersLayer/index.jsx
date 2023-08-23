@@ -1,6 +1,6 @@
 /** External Dependencies */
 import React from 'react';
-import { Layer } from 'konva';
+import { Layer } from 'react-konva';
 
 /** Internal Dependencies */
 import { useStore } from '../../../../ImageEditor/hooks';

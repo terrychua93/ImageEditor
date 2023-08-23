@@ -1,7 +1,7 @@
 /** External Dependencies */
 import React, { memo, useCallback, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { Layer, Image } from 'konva';
+import { Layer, Image } from 'react-konva';
 
 /** Internal Dependencies */
 import {

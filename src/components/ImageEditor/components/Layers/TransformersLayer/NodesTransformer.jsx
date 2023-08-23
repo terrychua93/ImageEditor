@@ -1,6 +1,6 @@
 /** External Dependencies */
 import React, { useMemo } from 'react';
-import { Transformer } from 'konva';
+import { Transformer } from 'react-konva';
 
 /** Internal Dependencies */
 import {

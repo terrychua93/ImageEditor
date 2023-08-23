@@ -60,7 +60,6 @@ const Topbar = (props) => {
       </StyledFlexCenterAlignedContainer>
       {props.displayTopbarSource ? 
       <div className="FIE_topbar-ori-image" onClick={onOpenImageViewer}>
-        <span>{props.displayLeftTopImageTitle}</span>
         <img src={props.displayTopbarSource.base64} width="30" height="30"/> 
       </div>: <span/>}
       

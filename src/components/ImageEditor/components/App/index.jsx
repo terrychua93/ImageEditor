@@ -54,7 +54,6 @@ const App = () => {
     cloudimage,
     source,
     displayTopbarSource,
-    displayLeftTopImageTitle,
     avoidChangesNotSavedAlertOnLeave,
     useBackendTranslations,
     translations,
@@ -277,7 +276,7 @@ const App = () => {
       $size={rootSize}
     >
       {isLoadingGlobally && <Spinner label={t('loading')} />}
-      {!showCanvasOnly && <Topbar displayTopbarSource={displayTopbarSource} displayLeftTopImageTitle={displayLeftTopImageTitle}/>}
+      {!showCanvasOnly && <Topbar displayTopbarSource={displayTopbarSource}/>}
       {originalImage && feedback.duration !== 0 && (
         <StyledMainContent className="FIE_main-container">
           {!isPhoneScreen && !showCanvasOnly && (

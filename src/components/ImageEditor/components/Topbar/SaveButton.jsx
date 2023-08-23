@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import MenuItem from '@scaleflex/ui/core/menu-item';
 import SaveAs from '@scaleflex/icons/save-as';
 import Label from '@scaleflex/ui/core/label';
+import Button from '@scaleflex/ui/core/button';
 
 /** Internal Dependencies */
 import { useStore, useTransformedImgData } from '../../../ImageEditor/hooks';

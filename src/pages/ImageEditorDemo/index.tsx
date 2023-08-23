@@ -7,48 +7,49 @@ import ImageEditor, {
   ImageEditorRef,
   onSaveImageResult,
 } from '../../components/ImageEditor';
-
+import { fileToBase64 } from '../../utils/utils';
 
 const { Title, Paragraph } = Typography;
-const saveImage: onSaveImageFunction = (originalImageData, savedImageData, imageDesignState) => {
-  if (savedImageData) {
-    console.log('saved image', savedImageData);
-    console.log('saved image - state', imageDesignState);
-  }
 
-  const result: onSaveImageResult = {
-    closeEditor: true,
-  };
-
-  return result;
-};
 
 export default () => {
-  const [form] = Form.useForm();
   const imageEditorRef = useRef<ImageEditorRef>(null);
   const input = useRef<HTMLInputElement>(null);
+  const [uploadedBase64, setUploadedBase64] = useState<string>();
+  const [edittedBase64, setEdittedBase64] = useState<string>();
+
+
+  const [fileType, setFileType] = useState<string>();
   const fileExtensionList = ['.jpg', '.jpeg', '.png', '.bmp', '.stl'];
+
+
   const editImage = async () => {
-    console.log('input', input.current);
-
-    try {
-
-    } catch { }
-  };
-
-  const editIdentalImage = () => {
-    const fileId = form.getFieldValue('fileId');
-    imageEditorRef.current?.startEditiDentalImage(fileId);
+    imageEditorRef.current?.setImageBase64(uploadedBase64!, fileType!);
   };
 
   const handleFileChange = async () => {
     const fileList = input.current?.files
     if (!fileList) return;
-    for (let i = 0; i < fileList.length; i++) {
-      if (!fileList[i]) return;
-      console.log('file', fileList[i])
-    }
+
+    console.log('file', fileList[0]);
+    const base64 = await fileToBase64(fileList[0]);
+    setFileType(fileList[0].type);
+    setUploadedBase64(base64);
     input.current!.value = '';
+  };
+
+  const saveImage: onSaveImageFunction = (originalImageData, savedImageData, imageDesignState) => {
+    if (savedImageData) {
+      console.log('saved image', savedImageData);
+      console.log('saved image - state', imageDesignState);
+      setEdittedBase64(savedImageData.imageBase64)
+    }
+
+    const result: onSaveImageResult = {
+      closeEditor: true,
+    };
+
+    return result;
   };
 
   return (
@@ -61,9 +62,24 @@ export default () => {
         accept={fileExtensionList?.toString()}
         onChange={handleFileChange}
       />
-      <Button style={{ width: '100%' }} onClick={() => editImage()}>
+      <Button style={{ 'marginRight': '5px' }} onClick={() => input.current?.click()}>
+        Add
+      </Button>
+      <Button onClick={() => editImage()}>
         Edit Image (Custom Image)
       </Button>
+
+      <div style={{ 'display': 'grid', 'gridAutoFlow': 'column' }}>
+        <div>
+          <p>Before Edit</p>
+          <img src={uploadedBase64} width={200} height={250} />
+        </div>
+
+        <div>
+          <p>After Edit</p>
+          <img src={edittedBase64} width={200} height={250} />
+        </div>
+      </div>
       <ImageEditor imageEditorRef={imageEditorRef} onSave={saveImage} />
     </>
   );
