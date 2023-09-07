@@ -64,6 +64,29 @@ export default {
   },
   [TOOLS_IDS.IMAGE]: {
     fill: undefined,
+    disableUpload: false,
+    gallery: [
+      {
+        name: "Red crossed",
+        originalUrl: "/icons/ImageEditorGallery/red-cross.png",
+        previewUrl: "/icons/ImageEditorGallery/red-cross.png",
+      },
+      {
+        name: "Syringe",
+        originalUrl: "/icons/ImageEditorGallery/syringe.png",
+        previewUrl: "/icons/ImageEditorGallery/syringe.png",
+      },
+      {
+        name: "Drill",
+        originalUrl: "/icons/ImageEditorGallery/drill.png",
+        previewUrl: "/icons/ImageEditorGallery/drill.png",
+      },
+      {
+        name: "Nippers",
+        originalUrl: "/icons/ImageEditorGallery/nippers.png",
+        previewUrl: "/icons/ImageEditorGallery/nippers.png",
+      },
+    ],
   },
   [TOOLS_IDS.RECT]: {
     fill: "rgba(0,0,0,0)",

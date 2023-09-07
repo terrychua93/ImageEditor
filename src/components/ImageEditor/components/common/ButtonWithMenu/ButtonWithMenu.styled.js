@@ -1,7 +1,7 @@
 /** External Dependencies */
-import styled from 'styled-components';
-import Button from '@scaleflex/ui/core/button';
-import IconButton from '@scaleflex/ui/core/icon-button';
+import styled from "styled-components";
+import Button from "@scaleflex/ui/core/button";
+import IconButton from "@scaleflex/ui/core/icon-button";
 
 const StyledButtonWrapper = styled.div`
   height: 22px;
@@ -18,8 +18,8 @@ const StyledMainButton = styled(Button)`
   align-items: center;
   ${({ keepBorderRadius }) =>
     keepBorderRadius
-      ? ''
-      : 'border-top-right-radius: 0; border-bottom-right-radius: 0'};
+      ? ""
+      : "border-top-right-radius: 0; border-bottom-right-radius: 0"};
 
   span {
     font-size: 12px !important;
